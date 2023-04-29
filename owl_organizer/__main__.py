@@ -39,17 +39,31 @@ def get_schemas():
 
 def download_schema(schema_name):
     """Download the schema with the given name from schema.org"""
-    url = "https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/15.0/schemaorg-all-http.jsonld"
+    url = "https://schema.org/version/latest/schemaorg-current-https.jsonld"
     response = requests.get(url)
 
     if response.status_code != 200:
         return None
 
-    data = response.json()["@graph"]
+    agg = {}
+    children = []
+    data = response.json()
+    agg["@context"] = data["@context"]
 
-    for d in data:
-        if d["@id"] == f"schema:{schema_name}" and d["@type"] == "rdfs:Class":
-            return json.dumps(d)
+    for d in data["@graph"]:
+        if d["@type"] == "rdf:Property" and "schema:domainIncludes" in d.keys():
+            # Force the domainIncludes to be a list even if there is only one element
+            if type(d["schema:domainIncludes"]) is dict:
+                d["schema:domainIncludes"] = [d["schema:domainIncludes"]]
+            for di in d["schema:domainIncludes"]:
+                if di["@id"] == f"schema:{schema_name}":
+                    children.append(d)
+        elif d["@type"] == "rdfs:Class":
+            if d["@id"] == f"schema:{schema_name}":
+                children.append(d)
+
+    agg["@graph"] = children
+    return json.dumps(agg, indent=2)
 
     raise KeyError("Schema not found")
 
