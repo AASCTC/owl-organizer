@@ -1,0 +1,230 @@
+{
+  "@context": {
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "vann": "http://purl.org/vocab/vann/",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "schema:catalog",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A data catalog which contains this dataset.",
+      "rdfs:label": "catalog",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Dataset"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:DataCatalog"
+      },
+      "schema:supersededBy": {
+        "@id": "schema:includedInDataCatalog"
+      }
+    },
+    {
+      "@id": "schema:datasetTimeInterval",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format).",
+      "rdfs:label": "datasetTimeInterval",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Dataset"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:DateTime"
+      },
+      "schema:supersededBy": {
+        "@id": "schema:temporalCoverage"
+      }
+    },
+    {
+      "@id": "schema:Dataset",
+      "@type": "rdfs:Class",
+      "owl:equivalentClass": [
+        {
+          "@id": "dcmitype:Dataset"
+        },
+        {
+          "@id": "dcat:Dataset"
+        },
+        {
+          "@id": "void:Dataset"
+        }
+      ],
+      "rdfs:comment": "A body of structured information describing some topic(s) of interest.",
+      "rdfs:label": "Dataset",
+      "rdfs:subClassOf": {
+        "@id": "schema:CreativeWork"
+      },
+      "schema:source": {
+        "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_DatasetClass"
+      }
+    },
+    {
+      "@id": "schema:variableMeasured",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.",
+      "rdfs:label": "variableMeasured",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Dataset"
+        }
+      ],
+      "schema:isPartOf": {
+        "@id": "https://pending.schema.org"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Text"
+        },
+        {
+          "@id": "schema:PropertyValue"
+        }
+      ],
+      "schema:source": {
+        "@id": "https://github.com/schemaorg/schemaorg/issues/1083"
+      }
+    },
+    {
+      "@id": "schema:includedDataCatalog",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A data catalog which contains this dataset (this property was previously 'catalog', preferred name is now 'includedInDataCatalog').",
+      "rdfs:label": "includedDataCatalog",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Dataset"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:DataCatalog"
+      },
+      "schema:supersededBy": {
+        "@id": "schema:includedInDataCatalog"
+      }
+    },
+    {
+      "@id": "schema:measurementTechnique",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),\ncorresponding to the method used for measuring the corresponding variable(s) (described using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.\n\nFor example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".\n\nIf the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".\n\nIf there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].\n      ",
+      "rdfs:label": "measurementTechnique",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:DataCatalog"
+        },
+        {
+          "@id": "schema:Dataset"
+        },
+        {
+          "@id": "schema:PropertyValue"
+        },
+        {
+          "@id": "schema:DataDownload"
+        }
+      ],
+      "schema:isPartOf": {
+        "@id": "https://pending.schema.org"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:URL"
+        },
+        {
+          "@id": "schema:Text"
+        }
+      ],
+      "schema:source": {
+        "@id": "https://github.com/schemaorg/schemaorg/issues/1425"
+      }
+    },
+    {
+      "@id": "schema:distribution",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information (see also [DCAT](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution) on this point). Different distributions might include or exclude different subsets of the entire dataset, for example.",
+      "rdfs:label": "distribution",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Dataset"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:DataDownload"
+      }
+    },
+    {
+      "@id": "schema:includedInDataCatalog",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A data catalog which contains this dataset.",
+      "rdfs:label": "includedInDataCatalog",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Dataset"
+        }
+      ],
+      "schema:inverseOf": {
+        "@id": "schema:dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:DataCatalog"
+      }
+    },
+    {
+      "@id": "schema:issn",
+      "@type": "rdf:Property",
+      "owl:equivalentProperty": {
+        "@id": "http://purl.org/ontology/bibo/issn"
+      },
+      "rdfs:comment": "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.",
+      "rdfs:label": "issn",
+      "rdfs:subPropertyOf": {
+        "@id": "schema:identifier"
+      },
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Dataset"
+        },
+        {
+          "@id": "schema:WebSite"
+        },
+        {
+          "@id": "schema:Blog"
+        },
+        {
+          "@id": "schema:CreativeWorkSeries"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      },
+      "schema:source": {
+        "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex"
+      }
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "@context": {
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "vann": "http://purl.org/vocab/vann/",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "schema:pageEnd",
+      "@type": "rdf:Property",
+      "owl:equivalentProperty": {
+        "@id": "http://purl.org/ontology/bibo/pageEnd"
+      },
+      "rdfs:comment": "The page on which the work ends; for example \"138\" or \"xvi\".",
+      "rdfs:label": "pageEnd",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:PublicationVolume"
+        },
+        {
+          "@id": "schema:PublicationIssue"
+        },
+        {
+          "@id": "schema:Chapter"
+        },
+        {
+          "@id": "schema:Article"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Integer"
+        },
+        {
+          "@id": "schema:Text"
+        }
+      ],
+      "schema:source": {
+        "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex"
+      }
+    },
+    {
+      "@id": "schema:wordCount",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The number of words in the text of the Article.",
+      "rdfs:label": "wordCount",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Article"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:Integer"
+      }
+    },
+    {
+      "@id": "schema:articleSection",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports, Lifestyle, etc.",
+      "rdfs:label": "articleSection",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Article"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "schema:articleBody",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The actual body of the article.",
+      "rdfs:label": "articleBody",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Article"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "schema:Article",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.\\n\\nSee also [blog post](http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html).",
+      "rdfs:label": "Article",
+      "rdfs:subClassOf": {
+        "@id": "schema:CreativeWork"
+      },
+      "schema:source": {
+        "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews"
+      }
+    },
+    {
+      "@id": "schema:speakable",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.\n\nThe *speakable* property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:\n\n1.) *id-value* URL references - uses *id-value* of an element in the page being annotated. The simplest use of *speakable* has (potentially relative) URL values, referencing identified sections of the document concerned.\n\n2.) CSS Selectors - addresses content in the annotated page, e.g. via class attribute. Use the [[cssSelector]] property.\n\n3.)  XPaths - addresses content via XPaths (assuming an XML view of the content). Use the [[xpath]] property.\n\n\nFor more sophisticated markup of speakable sections beyond simple ID references, either CSS selectors or XPath expressions to pick out document section(s) as speakable. For this\nwe define a supporting type, [[SpeakableSpecification]]  which is defined to be a possible value of the *speakable* property.\n         ",
+      "rdfs:label": "speakable",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Article"
+        },
+        {
+          "@id": "schema:WebPage"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:SpeakableSpecification"
+        },
+        {
+          "@id": "schema:URL"
+        }
+      ],
+      "schema:source": {
+        "@id": "https://github.com/schemaorg/schemaorg/issues/1389"
+      }
+    },
+    {
+      "@id": "schema:backstory",
+      "@type": "rdf:Property",
+      "rdfs:comment": "For an [[Article]], typically a [[NewsArticle]], the backstory property provides a textual summary giving a brief explanation of why and how an article was created. In a journalistic setting this could include information about reporting process, methods, interviews, data sources, etc.",
+      "rdfs:label": "backstory",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Article"
+        }
+      ],
+      "schema:isPartOf": {
+        "@id": "https://pending.schema.org"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:CreativeWork"
+        },
+        {
+          "@id": "schema:Text"
+        }
+      ],
+      "schema:source": [
+        {
+          "@id": "https://github.com/schemaorg/schemaorg/issues/1688"
+        },
+        {
+          "@id": "https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP"
+        }
+      ]
+    },
+    {
+      "@id": "schema:pagination",
+      "@type": "rdf:Property",
+      "owl:equivalentProperty": {
+        "@id": "http://purl.org/ontology/bibo/pages"
+      },
+      "rdfs:comment": "Any description of pages that is not separated into pageStart and pageEnd; for example, \"1-6, 9, 55\" or \"10-12, 46-49\".",
+      "rdfs:label": "pagination",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:PublicationVolume"
+        },
+        {
+          "@id": "schema:PublicationIssue"
+        },
+        {
+          "@id": "schema:Chapter"
+        },
+        {
+          "@id": "schema:Article"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      },
+      "schema:source": {
+        "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex"
+      }
+    },
+    {
+      "@id": "schema:pageStart",
+      "@type": "rdf:Property",
+      "owl:equivalentProperty": {
+        "@id": "http://purl.org/ontology/bibo/pageStart"
+      },
+      "rdfs:comment": "The page on which the work starts; for example \"135\" or \"xiii\".",
+      "rdfs:label": "pageStart",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:Chapter"
+        },
+        {
+          "@id": "schema:Article"
+        },
+        {
+          "@id": "schema:PublicationVolume"
+        },
+        {
+          "@id": "schema:PublicationIssue"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Integer"
+        },
+        {
+          "@id": "schema:Text"
+        }
+      ],
+      "schema:source": {
+        "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex"
+      }
+    }
+  ]
+}

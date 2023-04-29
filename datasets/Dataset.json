@@ -1,0 +1,35 @@
+  [
+    {
+      "catalog": "9y32Xd7fU6nC47V7",
+      "datasetTimeInterval": "2011-01-01T00:00:00/2011-12-31T23:59:59",
+      "Dataset": "\"Household Finances in 2008\"",
+      "variableMeasured": "Temperature",
+      "includedDataCatalog": "5e5de8d5-5fd5-428f-b3d3-f8ac2e1e3ac2",
+      "measurementTechnique": "Microscopy.",
+      "distribution": "7547c1a1a21d7a0f53ed0c9a383f3912",
+      "includedInDataCatalog": "false",
+      "issn": "05841585"
+    },
+    {
+      "catalog": "1-2F64",
+      "datasetTimeInterval": "2011-01-01/2011-12-31",
+      "Dataset": "\"Climate Change Impacts on Urban Environments\"",
+      "variableMeasured": "Temperature",
+      "includedDataCatalog": "Random-12345",
+      "measurementTechnique": "Gas Chromatography-Mass Spectrometry.",
+      "distribution": "5.871599",
+      "includedInDataCatalog": "true",
+      "issn": "373500279"
+    },
+    {
+      "catalog": "D9X5P7VH",
+      "datasetTimeInterval": "2011/2011",
+      "Dataset": "Data_Set_4545",
+      "variableMeasured": "Temperature.",
+      "includedDataCatalog": "2AJ-UH74-KL9X-YG6T",
+      "measurementTechnique": "Calorimetry.",
+      "distribution": "7n6dhg5w",
+      "includedInDataCatalog": "Yes",
+      "issn": "9085-6153"
+    }
+  ]

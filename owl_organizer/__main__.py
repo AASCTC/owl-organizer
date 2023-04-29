@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 import re
 from fuzzywuzzy import fuzz
 import time
+from gendata import generate_data
+from searchdata import search_data
 
 def search_schemas(strings, query):
     """Perform a fuzzy search for a query in a list of strings"""
@@ -156,27 +158,78 @@ def display_search_results(stdscr, query, results):
         elif key == 27:  # ESC key
             break
 
+def search_for(stdscr):
+        curses.curs_set(0)
+        stdscr.clear()
+        stdscr.refresh()
+        print("Please wait while the list of schemas is fetched...")
+        curses.curs_set(0)
+        stdscr.move(1,0)
+        schema_names = get_schemas()
+        # Set up the initial screen
+        curses.curs_set(0)
+        stdscr.clear()
+        stdscr.addstr(0, 0, "Enter a schema name to search for:")
+        stdscr.refresh()
+
+        # Get user input for the search query
+        curses.echo()
+        query = stdscr.getstr(1, 0).decode().strip()
+        curses.noecho()
+
+        # Search for schemas on schema.org
+        results = search_schemas(schema_names, query)
+
+        # Display the search results in a scrollable list
+        display_search_results(stdscr, query, results)
+
 def main(stdscr):
-    print("Please wait while the list of schemas is fetched...")
-    curses.curs_set(0)
-    stdscr.move(1,0)
-    schema_names = get_schemas()
-    # Set up the initial screen
-    curses.curs_set(0)
-    stdscr.clear()
-    stdscr.addstr(0, 0, "Enter a schema name to search for:")
-    stdscr.refresh()
 
-    # Get user input for the search query
-    curses.echo()
-    query = stdscr.getstr(1, 0).decode()
-    curses.noecho()
+    selected_idx = 0
 
-    # Search for schemas on schema.org
-    results = search_schemas(schema_names, query)
+    options = ["Search for schema",
+    "Generate sample data for schema",
+    "Search data inside schema"]
 
-    # Display the search results in a scrollable list
-    display_search_results(stdscr, query, results)
+    while True:
+        curses.curs_set(0)
+        stdscr.move(1,0)
+        # Set up the initial screen
+        curses.curs_set(0)
+        stdscr.clear()
+        stdscr.addstr(0, 0, "Select an option from below:")
+
+        j = 0
+        for i in range(len(options)):
+            if i < len(options):
+                if i == selected_idx:
+                    stdscr.attron(curses.A_REVERSE)
+                stdscr.addstr(j+2, 0, f"{options[i]}")
+                stdscr.attroff(curses.A_REVERSE)
+            j += 1
+
+        stdscr.refresh()
+
+        # Handle user input for navigating the search results
+        key = stdscr.getch()
+        # Handle arrow key input
+        if key == curses.KEY_UP:
+            selected_idx -= 1
+            if selected_idx < 0:
+                selected_idx = 0
+        elif key == curses.KEY_DOWN:
+            selected_idx += 1
+            if selected_idx >= len(options):
+                selected_idx = len(options)-1
+        elif key == curses.KEY_ENTER or key in [10, 13]:
+            if selected_idx == 0:
+                search_for(stdscr)
+            elif selected_idx == 1:
+                generate_data(stdscr)
+            elif selected_idx == 2:
+                search_data(stdscr)
+        elif key == 27:  # ESC key
+            break
 
     # Clean up curses
     curses.nocbreak()

@@ -1,0 +1,37 @@
+[
+  [
+    {
+      "pageEnd": "53",
+      "wordCount": "352",
+      "articleSection": "Health",
+      "articleBody": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor augue ac diam finibus, at tincidunt arcu vestibulum. Quisque non tempor dolor. Quisque sagittis, tellus sit amet posuere viverra, elit enim blandit mi, et suscipit lorem urna et risus. Donec volutpat purus in lectus cursus placerat. Nullam congue, sapien non luctus dictum, lorem ante sagittis eros, sed elementum purus magna quis tortor. Curabitur ut justo egestas, euismod massa vel, gravida quam. Sed sem metus, tincidunt vel dictum vel, condimentum vel nibh. Sed sagittis, orci vel posuere placerat, purus elit gravida mi, sed vestibulum elit eros mollis urna. Vivamus rhoncus aliquet sapien, sit amet rhoncus tellus fermentum eu.",
+      "Article": "\"Hours of Hope: A Charity Event for Children in Need\"",
+      "speakable": "id-value URL references",
+      "backstory": "After months of research and interviews, I uncovered a startling trend in the corporate world that had gone largely unseen for years. I set out to shed light on this troubling trend, researching document archives and speaking to industry insiders in order to piece together the story. Now, with a clearer understanding of how this trend affects individuals and organizations, I'm eager to share the results of my investigation.",
+      "pagination": "37-42, 81-89",
+      "pageStart": "xi"
+    },
+    {
+      "pageEnd": "xxvii",
+      "wordCount": "143",
+      "articleSection": "Health",
+      "articleBody": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet mi et eros tempor malesuada. Etiam faucibus magna eget ex lobortis, sit amet dignissim metus congue. Cras placerat ornare nisi eget molestie. Sed gravida commodo neque sit amet consectetur. Donec pulvinar bibendum sapien, ac tempor ipsum egestas sed. Donec elementum, augue ut interdum accumsan, quam velit gravida velit, vel consequat massa lacus non lacus. Phasellus vel sem vel elit pretium tristique nec ut dolor. Sed sed laoreet urna. Vestibulum et ipsum dolor.\"",
+      "Article": "\"Scientists unravel the genes responsible for long-distance migratory behavior in birds\"",
+      "speakable": "id-value: #5fkHGx5A",
+      "backstory": "After a tip-off from a former employee, our journalist begins to uncover the unethical practices being employed by a large corporation. Through a series of interviews and investigations, it is revealed that these practices have been in effect for years and have resulted in millions of dollars in losses to the company and its shareholders. This story highlights the importance of ethical practices and the consequences that can occur when they are ignored.",
+      "pagination": "37-39, 44-49, 54-59",
+      "pageStart": "24"
+    },
+    {
+      "pageEnd": "41",
+      "wordCount": "346",
+      "articleSection": "Science",
+      "articleBody": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus blandit erat, eget tempus velit finibus nec. Phasellus varius velit ut porttitor cursus. Pellentesque volutpat bibendum ex a consectetur. Aenean volutpat, eros sit amet accumsan interdum, dolor mi vestibulum augue, non aliquet dolor tellus non leo. Vivamus leo eros, blandit quis dictum sit amet, volutpat sollicitudin tortor. Maecenas ac arcu et ex interdum congue aliquet vel eros. Sed eget velit vel velit volutpat rutrum vel ac nibh. Ut auctor augue et erat accumsan iaculis. Maecenas scelerisque massa quis turpis auctor, a faucibus magna rhoncus. Aliquam erat volutpat.",
+      "Article": "\"Invasive Weeds Threaten Oregon's Native Species\"",
+      "speakable": "id-value URL reference",
+      "backstory": "After months of researching and interviews with experts in the field, this article provides an in-depth look at the hidden reasons behind the current crisis and how to move forward.",
+      "pagination": "4, 23-25, 32-34, 47-50",
+      "pageStart": "xvii"
+    }
+  ]
+]
