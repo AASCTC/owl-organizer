@@ -1,6 +1,8 @@
 [
-  [
     {
+      "@context": "http://schema.org/",
+      "@type": "Article",
+      "@id": "Article-ee11e783d166474cbc1774d29e0d7ef3",
       "pageEnd": "53",
       "wordCount": "352",
       "articleSection": "Health",
@@ -12,6 +14,9 @@
       "pageStart": "xi"
     },
     {
+      "@context": "http://schema.org/",
+      "@type": "Article",
+      "@id": "Article-ab3152e4d7dc48329254bf3b6deb67d0",
       "pageEnd": "xxvii",
       "wordCount": "143",
       "articleSection": "Health",
@@ -23,6 +28,9 @@
       "pageStart": "24"
     },
     {
+      "@context": "http://schema.org/",
+      "@type": "Article",
+      "@id": "Article-b4a706a209b548b0a441edac431e2ed8",
       "pageEnd": "41",
       "wordCount": "346",
       "articleSection": "Science",
@@ -33,5 +41,4 @@
       "pagination": "4, 23-25, 32-34, 47-50",
       "pageStart": "xvii"
     }
-  ]
 ]

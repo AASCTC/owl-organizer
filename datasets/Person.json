@@ -1,6 +1,9 @@
 
   [
     {
+      "@context": "http://schema.org/",
+      "@type": "Person",
+      "@id": "Person-7b458a63db7941db9cf6ecb5f086511e",
       "sibling": "John",
       "isicV4": "45200: Manufacturing of motor vehicles, trailers and semi-trailers",
       "hasPOS": "1934",
@@ -67,6 +70,9 @@
       "sponsor": "Google"
     },
     {
+      "@context": "http://schema.org/",
+      "@type": "Person",
+      "@id": "Person-6d5c3b9291ee4a2498b9b8441f389c20",
       "sibling": "Older",
       "isicV4": "50.00",
       "hasPOS": "65",

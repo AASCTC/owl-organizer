@@ -74,6 +74,7 @@ def search_json(data, field, search_term):
         if similarity_score > 10: # you can adjust this score threshold based on your requirements
             results.append((dataset, similarity_score))
 
+    results = sorted(results, key = lambda x: x[1], reverse=True)
     # Return the list of matching datasets and their scores
     return results
 
@@ -143,8 +144,7 @@ def search_data(stdscr):
             return
         results = []
         for match in matches:
-            results.append(match[0][field])
+            results.append(match[0]["@id"])
             results.append("Similarity Score: " + str(match[1]))
             results.append("-------------------------")
         scrollable_text(stdscr, results)
-

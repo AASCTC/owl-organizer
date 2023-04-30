@@ -1,6 +1,9 @@
 
   [
     {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "@id": "Organization-74d24a82b52d4bc9adaf3e0fc9a2e02e",
       "serviceArea": "New York City metropolitan area.",
       "founder": "Jack Wilson",
       "isicV4": "42.10",
@@ -70,6 +73,8 @@
       "sponsor": "Starbucks"
     },
     {
+      "@context": "http://schema.org/",
+      "@id": "Organization-82904afcf1aa4ddbbed4926d435c0064",
       "serviceArea": "San Francisco Bay Area",
       "founder": "John Smith",
       "isicV4": "4520",

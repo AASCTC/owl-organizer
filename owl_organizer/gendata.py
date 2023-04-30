@@ -3,6 +3,7 @@ import json
 import os
 import time
 import curses
+import uuid
 
 from openai.error import InvalidRequestError, ServiceUnavailableError, RateLimitError
 
@@ -13,10 +14,14 @@ with open('{}/.config/gptchat.conf'.format(os.path.expanduser("~"), 'r')) as fil
 model = "text-davinci-003"
 temperature = 0.9
 
-def gendata(jsonld, n):
+def gendata(jsonld, n, schema_class):
     mainresults = []
     for i in range(n):
         result = {}
+        result["@context"] = "https://schema.org"
+        generated_uuid = uuid.uuid4().hex
+        result["@type"] = schema_class
+        result["@id"] = f"{schema_class}-{generated_uuid}"
         for j in jsonld["@graph"]:
             if j["@type"] == "rfds:Class":
                 continue
@@ -109,7 +114,7 @@ def generate_data(stdscr):
     with open(f"schemas/{schema}.jsonld") as f:
         jsonld = json.load(f)
         try:
-            results = gendata(jsonld, number)
+            results = gendata(jsonld, number, schema)
         except Exception as e:
             stdscr.addstr(1, 0, "AI data generation is unavailable at this time")
             stdscr.refresh()
@@ -118,9 +123,12 @@ def generate_data(stdscr):
         try:
             with open(f"datasets/{schema}.json") as g:
                 oldresults = json.load(g)
-                oldresults += results
+                for r in results:
+                    oldresults.append(r)
                 results = oldresults
         except FileNotFoundError as e:
+            pass
+        except json.decoder.JSONDecodeError as e:
             pass
         with open(f"datasets/{schema}.json", "w") as g:
             json.dump(results, g, indent=2)

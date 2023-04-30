@@ -1,5 +1,8 @@
   [
     {
+      "@context": "http://schema.org/",
+      "@type": "Dataset",
+      "@id": "Dataset-5faeb28589b34e418c6fec6d16cbe2ba0",
       "catalog": "9y32Xd7fU6nC47V7",
       "datasetTimeInterval": "2011-01-01T00:00:00/2011-12-31T23:59:59",
       "Dataset": "\"Household Finances in 2008\"",
@@ -11,6 +14,9 @@
       "issn": "05841585"
     },
     {
+      "@context": "http://schema.org/",
+      "@type": "Dataset",
+      "@id": "Dataset-87858cd3b8fb4fbc95a3c03615e98aed",
       "catalog": "1-2F64",
       "datasetTimeInterval": "2011-01-01/2011-12-31",
       "Dataset": "\"Climate Change Impacts on Urban Environments\"",
@@ -22,6 +28,9 @@
       "issn": "373500279"
     },
     {
+      "@context": "http://schema.org/",
+      "@type": "Dataset",
+      "@id": "Dataset-f21e86d25ef949eeba5b008eb0b6ce13",
       "catalog": "D9X5P7VH",
       "datasetTimeInterval": "2011/2011",
       "Dataset": "Data_Set_4545",

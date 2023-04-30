@@ -1,16 +1,44 @@
 [
-  [
-    {
-      "Project": "Project-343dafb0-a697-4ab8-8a96-cba07e20c091"
-    },
-    {
-      "Project": "Project-0d3b9f0b-a756-45a5-854d-09af5b5a5b2e"
-    }
-  ],
   {
+    "@context": "http://schema.org/",
+    "@type": "Project",
+    "@id": "Project-ff7f3f86c84247c3892fca82bb418657",
+    "Project": "Project-343dafb0-a697-4ab8-8a96-cba07e20c091"
+  },
+  {
+    "@context": "http://schema.org/",
+    "@type": "Project",
+    "@id": "Project-b49e3e6157eb48ba83ffad5cb7597b00",
+    "Project": "Project-0d3b9f0b-a756-45a5-854d-09af5b5a5b2e"
+  },
+  {
+    "@context": "http://schema.org/",
+    "@type": "Project",
+    "@id": "Project-0f8d049ebe73404485a39a869f7992a7",
     "Project": "EncryptedDocumentSharingApp"
   },
   {
+    "@context": "http://schema.org/",
+    "@type": "Project",
+    "@id": "Project-cd71a6512df94280ab9cab87da9bc2bf",
     "Project": "Project #21476"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Project",
+    "@id": "Project-cacef0c3e1124ffab1d226fcaf02d0b3",
+    "Project": "Project-as-a-Service for Small Businesses."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Project",
+    "@id": "Project-93849b58500a4c0387c0d454b9a41ac5",
+    "Project": "Algorithmic Optimization Initiative"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Project",
+    "@id": "Project-bade136628a645e1b6d5c3ebb717f34c",
+    "Project": "The Voyager Telescope Project."
   }
 ]
